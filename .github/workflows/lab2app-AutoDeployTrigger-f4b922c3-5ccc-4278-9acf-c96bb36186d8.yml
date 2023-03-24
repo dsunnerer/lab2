@@ -23,8 +23,8 @@ jobs:
 
       - name: Setup actionlint
         run: |
-          wget https://github.com/rhysd/actionlint/releases/download/v${{ actionlint_tag }}/actionlint_${{ actionlint_tag }}_linux_amd64.tar.gz
-          tar xf actionlint_${{ actionlint_tag }}_linux_amd64.tar.gz -C /usr/local/bin
+          wget https://github.com/rhysd/actionlint/releases/download/v${{ vars.actionlint_tag }}/actionlint_${{ vars.actionlint_tag }}_linux_amd64.tar.gz
+          tar xf actionlint_${{ vars.actionlint_tag }}_linux_amd64.tar.gz -C /usr/local/bin
 
       - name: Check github actions
         run: actionlint
