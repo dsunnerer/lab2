@@ -1,8 +1,5 @@
 name: Trigger auto deployment for lab2app
 
-env:
-  actionlint_tag: 1.6.23
-
 # When this action will be executed
 on:
   # Automatically trigger it when detected changes in repo
@@ -26,8 +23,8 @@ jobs:
 
       - name: Setup actionlint
         run: |
-          wget https://github.com/rhysd/actionlint/releases/download/v$actionlint_tag/actionlint_$actionlint_tag_linux_amd64.tar.gz
-          tar xf actionlint_$actionlint_tag_linux_amd64.tar.gz -C /usr/local/bin
+          wget https://github.com/rhysd/actionlint/releases/download/v${{ actionlint_tag }}/actionlint_${{ actionlint_tag }}_linux_amd64.tar.gz
+          tar xf actionlint_${{ actionlint_tag }}_linux_amd64.tar.gz -C /usr/local/bin
 
       - name: Check github actions
         run: actionlint
@@ -35,6 +32,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    needs: analysis
 
     steps:
       - name: Checkout to the branch
