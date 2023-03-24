@@ -2,8 +2,6 @@ name: Trigger auto deployment for lab2app
 
 # When this action will be executed
 on:
-  # Allow manual trigger
-  workflow_dispatch:
   # Automatically trigger it when detected changes in repo
   push:
     branches: 
